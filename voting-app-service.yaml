@@ -11,7 +11,7 @@ spec:
       
     - port: 80
       targetPort: 80
-      nodePort: 30004
+      nodePort: 31000
 
   selector:
     name: voting-app-pod

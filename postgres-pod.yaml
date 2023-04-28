@@ -1,21 +1,20 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: postgres-pod
-  labels:
-    name: postgres-pod
-    app: demo-voting-app
+       name: postgres-pod
+       labels:
+         name: postgres-pod
+         app: demo-voting-app
 spec:
-  containers:
-    - name: postgres
-      image: postgres-pod
-      ports:
-        - containerPort: 5432
-      
-      env:
-      # In practice always use secrets, not plain text, for the purpose of tutorial i have used plain text
-        - name: POSTGRES_USER
-          value: "postgres"
-        - name: POSTGRES_PASSWORD
-          value: "postgres"
-    
+       containers:
+       - name: postgres
+         image: postgres:9.4
+         env:
+         - name: POSTGRES_USER
+           value: postgres
+         - name: POSTGRES_PASSWORD
+           value: postgres
+         - name: POSTGRES_HOST_AUTH_METHOD
+           value: trust
+         ports:
+         - containerPort: 5432
